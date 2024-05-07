@@ -1,4 +1,7 @@
 * Chonky
+** New docs
+- D(Domain)DD
+- D(Document)DD
 ** Old references
 *** Description:
 - taggable
@@ -40,11 +43,22 @@ Really need to build the pinterest alternative that can handle the following all
 - Picture and media dump. (For media other than image, needs to support twitter, insta, and YT links.)
 - Takes local backup of the media
 - Eg. one usecase could be, I want to build this furniture, I want to do this DIY etc.
+*** 4th requirements
+- Thread support (comments)
+- Not meant to a community board but more of a "personal"
+  - No need of moderation
+  - But need public/private scoping of entities
+    - Entities
+      - Media/Collection of media
+- support getting media from local filesystems
+  - local fs
+  - cloud drives
+  - object stores
 *** References:
-- [[https://github.com/funmaker/hybooru][hybooru]]
-- [[https://hydrusnetwork.github.io/hydrus/][hydrus]]
-- [[https://github.com/kennell/imageboards][img boards]]
+- [ ] [[https://github.com/funmaker/hybooru][hybooru]]
+- [ ] [[https://hydrusnetwork.github.io/hydrus/][hydrus]]
+- [ ] [[https://github.com/kennell/imageboards][img boards]]
 - Basically self hosted are.na
-  - https://github.com/slynn1324/tinypin
-  - https://www.are.na/editorial/on-motivation
-  - https://www.are.na/about#roadmap
+  - [ ] https://github.com/slynn1324/tinypin
+  - [ ] https://www.are.na/editorial/on-motivation
+  - [ ] https://www.are.na/about#roadmap
