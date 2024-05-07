@@ -1,9 +1,30 @@
 * Chonky
-#+begin_quote
-- D(Domain)DD
-- D(Document)DD
-We're doing *Document Driven Development*
-#+end_quote
+** Table of contents
+- [[#chonky][Chonky]]
+  - [[#requirements][Requirements]]
+    - [[#goal][Goal]]
+      - [[#concept][Concept]]
+      - [[#design-todo][Design (TODO)]]
+      - [[#aspects][Aspects]]
+    - [[#not-doing][Not doing]]
+    - [[#background-and-strategic-fit][Background and strategic fit]]
+    - [[#assumptions-and-dependencies][Assumptions and Dependencies]]
+    - [[#user-stories-use-cases][User Stories/ Use cases]]
+    - [[#system-features-and-requirements][System Features and Requirements]]
+      - [[#functional-requirements][Functional Requirements]]
+      - [[#non-functional-requirements][Non-functional Requirements]]
+      - [[#external-interface-requirements][External Interface Requirements]]
+    - [[#questions][Questions]]
+  - [[#readings][Readings]]
+    - [[#tagging-systems][Tagging systems]]
+    - [[#overall-design-and-idea][Overall design and Idea]]
+    - [[#clip][CLIP]]
+  - [[#other-links][Other links]]
+    - [[#photo-management][Photo management]]
+  - [[#action-items][Action Items]]
+    - [[#decide-on-the-tech][Decide on the tech]]
+      - [[#background-jobs][Background jobs]]
+
 ** Requirements
 *** Goal
 **** Concept
@@ -123,6 +144,7 @@ Create a list of technical or business assumptions that the team might have.
 - Bot is especially useful when we want to quickly share when using mobile. Either telegram or zulip works for me. Eg. It can be a sole thing running for one channel or it can be called upon some command, word mention etc.
 *** Questions
 A good practice is to record all these questions and track them.
+
 ** Readings
 *** Tagging systems
 - https://github.com/metabrainz/picard
