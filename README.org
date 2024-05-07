@@ -1,7 +1,60 @@
 * Chonky
-** New docs
+#+begin_quote
 - D(Domain)DD
 - D(Document)DD
+We're doing *Document Driven Development*
+#+end_quote
+** Requirements
+*** Goal
+Define the most important goals in a short point form.
+*** Not doing
+List the things which you aren’t doing now but plan on doing soon.
+*** Background and strategic fit
+How do your actions affect product development and align with the company’s goals
+*** Assumptions and Dependencies
+Create a list of technical or business assumptions that the team might have.
+- There might be processing heavy background jobs for each operation
+*** User Stories/ Use cases
+The user story is a short description of customer actions and results they want to achieve. The UX flow can be useful here. This should also include intended audience.
+- Mood boarding
+  - [[https://resources.arc.net/hc/en-us/articles/19228534606743-Share-Spaces-Folders-Splits-with-Anyone][Share Spaces, Folders & Splits with Anyone – Arc Help Center]]
+- Follow up on some idea that was captured via some media
+*** System Features and Requirements
+**** Functional Requirements
+- Needs to be a binary (./chonky)
+- Archival, Sourcing and classification
+  - Media once cataloged should be accessible forever
+  - Regex based classification.
+- Sync media across devices
+***** Supported media types
+  - Image
+    - Direct upload
+    - Public URL
+  - Video
+    - Direct upload
+    - Public URL/Social media links
+  - Audio
+    - Voice notes
+**** Non-functional Requirements
+(Performance, Safety, Privacy, Quality etc.)
+**** External Interface Requirements
+| Platform | Description         |
+|----------+---------------------|
+| Web      |                     |
+| CLI      | Daemon & Client     |
+| PWA      | Maybe use [[https://capacitorjs.com/][capacitor]] |
+| Bot      | Zulip bot           |
+- All different interfaces should be in sync
+- Different interfaces can have interface specific features that are only accessible in that interface. Eg. Instead of trying to make the web application access your filesystem, maybe the cli daemon can do that for you.
+***** PWA
+- More of a web client
+- It's not expected to run as a background application.
+- If we want it to access my screenshots, the flow would be to use something like [[https://syncthing.net/][syncthing]] and get that into the machine which would be running the CLI daemon which can then sync the content of the directory to chonky catalog.
+***** CLI
+***** Web
+*** Questions
+A good practice is to record all these questions and track them.
+
 ** Old references
 *** Description:
 - taggable
@@ -44,6 +97,8 @@ Really need to build the pinterest alternative that can handle the following all
 - Takes local backup of the media
 - Eg. one usecase could be, I want to build this furniture, I want to do this DIY etc.
 *** 4th requirements
+- Write about chonky in a inkandswitch task-specific-software fashion
+- Mood boarding
 - Thread support (comments)
 - Not meant to a community board but more of a "personal"
   - No need of moderation
@@ -54,11 +109,3 @@ Really need to build the pinterest alternative that can handle the following all
   - local fs
   - cloud drives
   - object stores
-*** References:
-- [ ] [[https://github.com/funmaker/hybooru][hybooru]]
-- [ ] [[https://hydrusnetwork.github.io/hydrus/][hydrus]]
-- [ ] [[https://github.com/kennell/imageboards][img boards]]
-- Basically self hosted are.na
-  - [ ] https://github.com/slynn1324/tinypin
-  - [ ] https://www.are.na/editorial/on-motivation
-  - [ ] https://www.are.na/about#roadmap
