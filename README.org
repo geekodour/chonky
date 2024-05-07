@@ -1,9 +1,6 @@
 * Chonky
-kasjdkasjd
-
-
-* Old references
-** Description:
+** Old references
+*** Description:
 - taggable
 - post memes, screenshots
 - write a short desc that can be used for fast lookup later.
@@ -14,7 +11,7 @@ kasjdkasjd
 - no duplicate photos/memes
 - issues
   - basically i need pinterest here, but the existing open source solutions suck balls
-** 2nd description
+*** 2nd description
 m.geekodour.org for memes w quick search. meme thing has to do ocr and image desc both.
 - I think i've described this better in my project idea page. should merge.
 - I probably also want to do this for video
@@ -35,7 +32,19 @@ m.geekodour.org for memes w quick search. meme thing has to do ocr and image des
 - [[https://news.ycombinator.com/item?id=34939053][Using GPT3, Supabase and Pinecone]]
 - [[https://huggingface.co/unum-cloud/uform][unum-cloud/uform · Hugging Face]]
 - https://github.com/bitinn/animeshot2
-** References:
+*** 3rd description
+Really need to build the pinterest alternative that can handle the following all at once
+- Meme semantic search
+- Pintererst alternative for mood board creation
+- Automatic tagging of things
+- Picture and media dump. (For media other than image, needs to support twitter, insta, and YT links.)
+- Takes local backup of the media
+- Eg. one usecase could be, I want to build this furniture, I want to do this DIY etc.
+*** References:
 - [[https://github.com/funmaker/hybooru][hybooru]]
 - [[https://hydrusnetwork.github.io/hydrus/][hydrus]]
 - [[https://github.com/kennell/imageboards][img boards]]
+- Basically self hosted are.na
+  - https://github.com/slynn1324/tinypin
+  - https://www.are.na/editorial/on-motivation
+  - https://www.are.na/about#roadmap
