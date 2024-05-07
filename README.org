@@ -40,6 +40,8 @@
 **** Concept
 - Tagging means nothing if at the time when I need to actually need it I can't find it
 - Additionally, if your collection becomes very large, it's very easy to forget about things that you've previously seen.
+- Very much resonates with this tweet that I just found: https://twitter.com/spencerc99/status/1787915562041098636
+  - "excited to share Gather, an offline first app for cultivating, curating, and revisiting multimedia collections that sync with AREdotNA"
 **** TODO Design (TODO)
 - Chonk
 - Media <> Collections
@@ -95,12 +97,19 @@ How do your actions affect product development and align with the company’s go
 Create a list of technical or business assumptions that the team might have.
 - There might be processing heavy background jobs for each operation
 *** User Stories/ Use cases
+My primary usecase is *FAST* meme search, and idea dump that should be easily searchable later, there are other things also eg. I see instagram reels etc which are like "oh it'll be fun to do this with friends" and later that never happens because I don't remember it only. Just an example but many such cases. Have to think better on the "tagging"(complicated than it seems) and the interfacing aspect of the moodboard specific to the usecases at hand.
 - Storing memes
 - Storing screenshots
 - Mood boarding
   - [[https://resources.arc.net/hc/en-us/articles/19228534606743-Share-Spaces-Folders-Splits-with-Anyone][Share Spaces, Folders & Splits with Anyone – Arc Help Center]]
   - Eg. one usecase could be, I want to build this furniture, I want to do this DIY etc.
-- Follow up on some idea that was captured via some media
+- DIY ideas capturing
+  - Follow up on some idea that was captured via some media
+  - Architecture ideas capture. etc.
+- Create collection of images of things
+  - Eg. Gates of Guwahati
+  - Eg. People wearing Red Tshirt
+- What else?
 *** System Features and Requirements
 **** Functional Requirements
 - Needs to be a binary (./chonky)
