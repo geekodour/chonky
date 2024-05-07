@@ -1,0 +1,41 @@
+* Chonky
+kasjdkasjd
+
+
+* Old references
+** Description:
+- taggable
+- post memes, screenshots
+- write a short desc that can be used for fast lookup later.
+- offline first, run ocr on it locally and maintain an index to be searched later.
+- don't need a phone app, wpa will do
+  - if not wpa must make use of telegram api somehow, but wpa preferred.
+  - anonymous twitter account and use hashtags can be good for starters also
+- no duplicate photos/memes
+- issues
+  - basically i need pinterest here, but the existing open source solutions suck balls
+** 2nd description
+m.geekodour.org for memes w quick search. meme thing has to do ocr and image desc both.
+- I think i've described this better in my project idea page. should merge.
+- I probably also want to do this for video
+- [[https://news.ycombinator.com/item?id=33248391][I am endlessly fascinated with content tagging systems | Hacker News]]
+- [[https://mazzzystar.github.io/2022/12/29/Run-CLIP-on-iPhone-to-Search-Photos/][Run CLIP on iPhone to Search Photos | TL;DR]]
+- [[https://github.com/Vision-CAIR/MiniGPT-4][GitHub - Vision-CAIR/MiniGPT-4: MiniGPT-4: Enhancing Vision-language Understanding with Advanced Large Language Models]] (BLIP - 2)
+- CLIP on web
+  - https://twitter.com/NielsRogge/status/1717259646602236136
+  - https://huggingface.co/spaces/radames/Candle-BLIP-Image-Captioning
+  - https://twitter.com/radamar/status/1717437265302237415
+  - [[https://news.ycombinator.com/item?id=38023544][MetaCLIP – Meta AI Research | Hacker News]]
+  - https://github.com/monatis/clip.cpp
+- [[https://github.com/deepfates/memery][GitHub - deepfates/memery: Search over large image datasets with natural language and computer vision!]]
+- [[https://portal.vision.cognitive.azure.com/demo/dense-captioning][Vision Studio]] (w sport gpu instances?)
+- [[https://news.ycombinator.com/item?id=39392582][Show HN: I made a Pinterest clone using SigLIP image embeddings | Hacker News]]
+- [[https://news.ycombinator.com/item?id=39067615][Indexing iCloud Photos with AI Using LLaVA and Pgvector | Hacker News]]
+- [[https://montyanderson.net/writing/embeddings][Monty Anderson]]
+- [[https://news.ycombinator.com/item?id=34939053][Using GPT3, Supabase and Pinecone]]
+- [[https://huggingface.co/unum-cloud/uform][unum-cloud/uform · Hugging Face]]
+- https://github.com/bitinn/animeshot2
+** References:
+- [[https://github.com/funmaker/hybooru][hybooru]]
+- [[https://hydrusnetwork.github.io/hydrus/][hydrus]]
+- [[https://github.com/kennell/imageboards][img boards]]
