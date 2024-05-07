@@ -6,18 +6,69 @@ We're doing *Document Driven Development*
 #+end_quote
 ** Requirements
 *** Goal
-Define the most important goals in a short point form.
+**** Concept
+- Tagging means nothing if at the time when I need to actually need it I can't find it
+- Additionally, if your collection becomes very large, it's very easy to forget about things that you've previously seen.
+**** TODO Design (TODO)
+- Chonk
+- Media <> Collections
+  - Boards
+**** Aspects
+***** Mood-boarding and Idea generation
+- Discussions around entities (boards/collection/images)
+- Moodboards are just views on underlying chonks
+- https://kinopio.club | https://same.energy/ | https://www.are.na/about | Pinterest
+***** Abstraction on Collections
+Abstractions can have different operations on them.
+- Eg. Cluster all photos inside the tag meme with the other tags.
+- Eg. Mini Sculptures examples.
+- Eg. Create a view of all the images and videos by time of entry.
+- Eg. Based on the content of these selection generate a nice moodboard(the format of the moodboard needs to be thought of)
+- Eg. Based on the content of these selection generate a topic of study. Fetch wikipedia pages related to the specific design methods used etc. Maybe fetch other relevant info and dump it for me.
+
+Basically the UI should be fluid and based on the view. View is combination of the specific abstraction+operation on it. The operation can be filtering, enhancing, [[https://github.com/ivandokov/phockup][mutation]], etc etc.
+
+***** Collection
+There is 3 parts to the collection, one is ~sourcing~ the collection, second is managing the ~storage of the collection~ items, 3rd is taking care of the ~abstraction~ of the collection itself.
+
+- Photos
+  - Picture and media dump. (For media other than image, needs to support twitter, insta, and YT links.)
+  - Source:
+    - https://github.com/mikf/gallery-dl
+- Video
+  - Also my YT video manager
+    - https://github.com/jmbannon/ytdl-sub
+    - https://github.com/horahoradev/PrometheusTube
+    - https://github.com/tubearchivist/tubearchivist
+    - Other ways to enrich the video for consumption etc.
+  - Videos from instagram etc
+    - https://github.com/iawia002/lux also ~yt-dlp~
+***** Search
+All search only happens within your chonk
+- Tagging
+  - Automatic tagging
+  - Rule based tagging (See https://github.com/tfeldmann/organize)
+- Semantic search
+  - Reference: https://github.com/deepfates/memery
+    - I had a conversation with the dev, I forgot what the conversation was, revisit.
+- Search by image (same.energy)
 *** Not doing
-List the things which you aren’t doing now but plan on doing soon.
+- Not supposed to be a collaborative software
+- Not a google photos alternative (This is not mean to contain sensitive stuff, it'll probably have public/private scoping later but this is more for random inspiration and for managing other pictures that you find interesting, it could be a picture that you clicked obviously but not a icloud or google photos alternative)
+- Not meant to a community board but more of a "personal" dump
+  - No need of moderation
+- But need public/private scoping of entities (Can be implemented later)
 *** Background and strategic fit
 How do your actions affect product development and align with the company’s goals
 *** Assumptions and Dependencies
 Create a list of technical or business assumptions that the team might have.
 - There might be processing heavy background jobs for each operation
 *** User Stories/ Use cases
-The user story is a short description of customer actions and results they want to achieve. The UX flow can be useful here. This should also include intended audience.
+- Storing memes
+- Storing screenshots
 - Mood boarding
   - [[https://resources.arc.net/hc/en-us/articles/19228534606743-Share-Spaces-Folders-Splits-with-Anyone][Share Spaces, Folders & Splits with Anyone – Arc Help Center]]
+  - Eg. one usecase could be, I want to build this furniture, I want to do this DIY etc.
 - Follow up on some idea that was captured via some media
 *** System Features and Requirements
 **** Functional Requirements
@@ -27,16 +78,26 @@ The user story is a short description of customer actions and results they want 
   - Regex based classification.
 - Sync media across devices
 ***** Supported media types
-  - Image
-    - Direct upload
-    - Public URL
-  - Video
-    - Direct upload
-    - Public URL/Social media links
-  - Audio
-    - Voice notes
+- Image
+  - Direct upload
+  - Public URL
+- Video
+  - Direct upload
+  - Public URL/Social media links
+***** Storage
+- Files could be uploaded via CLI or via web/mobile
+- For daemon: support getting media from local filesystems
+  - local fs (Initially this)
+  - cloud drives
+  - object stores
+  - The local daemon access fs thing will remain as is, if it encounters new files it'll upload them to chonky, and do any futher pre-processing. Otherwise it'll not do anything.
 **** Non-functional Requirements
-(Performance, Safety, Privacy, Quality etc.)
+- Offline first (Local first software)
+- Automatic compression of the image for various sizes (Good for later)
+- Automatic captioning of things so that can be search later
+- Backup of everything
+  - https://github.com/rclone/rclone
+- Automatic detection of duplicate images etc
 **** External Interface Requirements
 | Platform | Description         |
 |----------+---------------------|
@@ -46,66 +107,59 @@ The user story is a short description of customer actions and results they want 
 | Bot      | Zulip bot           |
 - All different interfaces should be in sync
 - Different interfaces can have interface specific features that are only accessible in that interface. Eg. Instead of trying to make the web application access your filesystem, maybe the cli daemon can do that for you.
+***** Web
 ***** PWA
 - More of a web client
+- Mostly to be used for search
 - It's not expected to run as a background application.
 - If we want it to access my screenshots, the flow would be to use something like [[https://syncthing.net/][syncthing]] and get that into the machine which would be running the CLI daemon which can then sync the content of the directory to chonky catalog.
 ***** CLI
-***** Web
+- Daemon & Client
+- Tagging, rules management etc. (See https://github.com/2mol/pboy)
+- Search from CLI
+- Mostly management realted things for chonky
+- I think for how we're planning to structure our media, I don't think it'll fit in nicely into the typical linux FSH. It'll be more around tags. So If someone decides to do a local export of the whole thing and wants to interact with the media files directly, we'd need a middleman to get us from the tag/graph to the actual file on disk. Think the CLI will be useful here.
+***** Bot
+- Bot is especially useful when we want to quickly share when using mobile. Either telegram or zulip works for me. Eg. It can be a sole thing running for one channel or it can be called upon some command, word mention etc.
 *** Questions
 A good practice is to record all these questions and track them.
-
-** Old references
-*** Description:
-- taggable
-- post memes, screenshots
-- write a short desc that can be used for fast lookup later.
-- offline first, run ocr on it locally and maintain an index to be searched later.
-- don't need a phone app, wpa will do
-  - if not wpa must make use of telegram api somehow, but wpa preferred.
-  - anonymous twitter account and use hashtags can be good for starters also
-- no duplicate photos/memes
-- issues
-  - basically i need pinterest here, but the existing open source solutions suck balls
-*** 2nd description
-m.geekodour.org for memes w quick search. meme thing has to do ocr and image desc both.
-- I think i've described this better in my project idea page. should merge.
-- I probably also want to do this for video
+** Readings
+*** Tagging systems
+- https://github.com/metabrainz/picard
 - [[https://news.ycombinator.com/item?id=33248391][I am endlessly fascinated with content tagging systems | Hacker News]]
-- [[https://mazzzystar.github.io/2022/12/29/Run-CLIP-on-iPhone-to-Search-Photos/][Run CLIP on iPhone to Search Photos | TL;DR]]
-- [[https://github.com/Vision-CAIR/MiniGPT-4][GitHub - Vision-CAIR/MiniGPT-4: MiniGPT-4: Enhancing Vision-language Understanding with Advanced Large Language Models]] (BLIP - 2)
-- CLIP on web
-  - https://twitter.com/NielsRogge/status/1717259646602236136
-  - https://huggingface.co/spaces/radames/Candle-BLIP-Image-Captioning
-  - https://twitter.com/radamar/status/1717437265302237415
-  - [[https://news.ycombinator.com/item?id=38023544][MetaCLIP – Meta AI Research | Hacker News]]
-  - https://github.com/monatis/clip.cpp
-- [[https://github.com/deepfates/memery][GitHub - deepfates/memery: Search over large image datasets with natural language and computer vision!]]
-- [[https://portal.vision.cognitive.azure.com/demo/dense-captioning][Vision Studio]] (w sport gpu instances?)
-- [[https://news.ycombinator.com/item?id=39392582][Show HN: I made a Pinterest clone using SigLIP image embeddings | Hacker News]]
+- [[https://amoffat.github.io/supertag/architecture.html][Architecture — Supertag 0.1.0 documentation]]
+*** Overall design and Idea
+- InkandSwitch task specific papers
+- Breadboard (KilltheApp): Build context in which the different data can interoperate ([[https://www.youtube.com/watch?v=yzudS3ABHcA][Breadboard Proto Demo 1 - YouTube]])
+*** CLIP
+Unsure what's the state of the art is, what would be useful to us. What about multimodal?
+- [[https://arxiv.org/abs/2309.16671][[2309.16671] Demystifying CLIP Data]]
+  - [[https://mazzzystar.github.io/2022/12/29/Run-CLIP-on-iPhone-to-Search-Photos/][Run CLIP on iPhone to Search Photos | TL;DR]]
+- SigLIP: [[https://huggingface.co/docs/transformers/en/model_doc/siglip][SigLIP]]
 - [[https://news.ycombinator.com/item?id=39067615][Indexing iCloud Photos with AI Using LLaVA and Pgvector | Hacker News]]
-- [[https://montyanderson.net/writing/embeddings][Monty Anderson]]
-- [[https://news.ycombinator.com/item?id=34939053][Using GPT3, Supabase and Pinecone]]
-- [[https://huggingface.co/unum-cloud/uform][unum-cloud/uform · Hugging Face]]
-- https://github.com/bitinn/animeshot2
-*** 3rd description
-Really need to build the pinterest alternative that can handle the following all at once
-- Meme semantic search
-- Pintererst alternative for mood board creation
-- Automatic tagging of things
-- Picture and media dump. (For media other than image, needs to support twitter, insta, and YT links.)
-- Takes local backup of the media
-- Eg. one usecase could be, I want to build this furniture, I want to do this DIY etc.
-*** 4th requirements
-- Write about chonky in a inkandswitch task-specific-software fashion
-- Mood boarding
-- Thread support (comments)
-- Not meant to a community board but more of a "personal"
-  - No need of moderation
-  - But need public/private scoping of entities
-    - Entities
-      - Media/Collection of media
-- support getting media from local filesystems
-  - local fs
-  - cloud drives
-  - object stores
+  - https://github.com/eagledot/hachi
+- [[https://llava-vl.github.io/][LLaVA]]
+  - [[https://github.com/unum-cloud/uform][unum-cloud/uform]]
+    - Claims to be up to 5x faster than OpenAI CLIP and LLaVA
+- [[https://huggingface.co/Salesforce/blip-image-captioning-large][Salesforce/blip-image-captioning-large · Hugging Face]]
+  - Running BLIP in browser: [[https://huggingface.co/spaces/radames/Candle-BLIP-Image-Captioning][Candle BLIP Image Captioning - a Hugging Face Space by radames]]
+- [[https://github.com/monatis/clip.cpp][GitHub - monatis/clip.cpp: CLIP inference in plain C/C++ with no extra dependencies]]
+- [[https://news.ycombinator.com/item?id=38023544][MetaCLIP – Meta AI Research | Hacker News]]
+- Embeddings
+  - https://montyanderson.net/writing/embeddings
+** Other links
+*** Photo management
+Chonky is not exactly a personal photo management app, while it can be used as such. That's not the primary usecase and I'll not be focusing on it. Here are some good alternatives to pick from
+- https://damselfly.info/
+- https://github.com/immich-app/immich
+  - Has a nice table of features which we can consider when checking what features we want to support
+- https://github.com/LibrePhotos/librephotos
+- https://www.photoprism.app/
+- https://photoview.github.io/
+- https://github.com/gbbirkisson/spis
+** Action Items
+*** Decide on the tech
+**** Background jobs
+- [[https://www.reddit.com/r/golang/comments/1b80zsn/goqite_is_a_persistent_message_queue_go_library/][Reddit - Dive into anything]]
+- https://github.com/pocketbase/pocketbase/discussions/2101
+- https://github.com/pocketbase/pocketbase/discussions/4547
