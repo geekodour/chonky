@@ -198,9 +198,25 @@ Chonky is not exactly a personal photo management app, while it can be used as s
 - https://www.photoprism.app/
 - https://photoview.github.io/
 - https://github.com/gbbirkisson/spis
+- Ref image moodboard maker
+  - https://www.reddit.com/r/macapps/comments/ruc8mf/affordable_moodboard_app_for_macios/
 ** Action Items
 *** Decide on the tech
 **** Background jobs
 - [[https://www.reddit.com/r/golang/comments/1b80zsn/goqite_is_a_persistent_message_queue_go_library/][Reddit - Dive into anything]]
 - https://github.com/pocketbase/pocketbase/discussions/2101
 - https://github.com/pocketbase/pocketbase/discussions/4547
+** Meeting notes from Spencer's session
+- I want to remember folder
+  - Is there any recall algorithm?
+- digital and physical world
+  - different databases and datastore
+  - so now we build an unified layer of top of it for search
+- My problem with zulip
+  - Too many channels
+  - Would be nice for it to learn from my data curation and then in my downtime the plucking becomes easier
+  - The meta problem that charles mentioned that deciding which technology/medium to use in the first place
+- communal computing
+  - software made by community and brings the community together
+  - explorantion of how does data ownership look like something like thta?
+  - https://www.are.na/spencer-chang/communal-computing-infrastructure
