@@ -200,6 +200,9 @@ Chonky is not exactly a personal photo management app, while it can be used as s
 - https://github.com/gbbirkisson/spis
 - Ref image moodboard maker
   - https://www.reddit.com/r/macapps/comments/ruc8mf/affordable_moodboard_app_for_macios/
+    - https://en.eagle.cool/
+    - https://milanote.com/
+    - https://www.pureref.com
 ** Action Items
 *** Decide on the tech
 **** Background jobs
@@ -220,3 +223,55 @@ Chonky is not exactly a personal photo management app, while it can be used as s
   - software made by community and brings the community together
   - explorantion of how does data ownership look like something like thta?
   - https://www.are.na/spencer-chang/communal-computing-infrastructure
+** Ideas/Doubts
+*** Metadata
+**** Tools that use metadata for search
+Media metadata tags is interesting, but when i tried searching for tools that do this, there is not much interest apparently and the tooling is scattered/manual and not that great.
+- [[https://karl-voit.at/2019/11/26/Tagging-Files-With-Windows-10/][Tagging Files With Windows 10]]
+- [[https://unix.stackexchange.com/questions/705727/indexing-files-metadata][filesystems - Indexing files' metadata - Unix & Linux Stack Exchange]]
+- [[https://stackoverflow.com/questions/55957673/how-to-add-metadata-to-a-folder-on-mac-linux/55958866#55958866][node.js - How to add metadata to a folder on mac/linux - Stack Overflow]]
+- [[https://unix.stackexchange.com/questions/31063/is-there-a-file-search-engine-like-everything-in-linux][filesystems - Is there a file search engine like "Everything" in Linux? - Unix & Linux Stack Exchange]]
+- [[https://stackoverflow.com/questions/74687084/how-to-search-for-keywords-in-metadata-across-all-files-in-a-folder-recursively][bash - How to search for keywords in metadata across all files in a folder recursively? - Stack Overflow]]
+- [[https://superuser.com/questions/1734380/can-you-tag-a-file-with-metadata-and-later-search-for-files-by-metadata][linux - Can you tag a file with metadata and later search for files by metadata? - Super User]]
+- [[https://askubuntu.com/questions/1295602/how-to-find-and-return-the-names-of-all-images-containing-specific-metadata][command line - How to find and return the names of all images containing specific metadata? - Ask Ubuntu]]
+- linux and win tools
+  - https://github.com/ozeidan/gosearch
+  - https://github.com/ngirard/lolcate-rs
+  - https://www.voidtools.com/
+  - https://www.recoll.org/index.html
+  - https://api.kde.org/frameworks/baloo/html/searching.html
+  - [[https://openimageio.readthedocs.io/en/latest/igrep.html][Searching Image Metadata With igrep - OpenImageIO 2.6.2 documentation]]
+**** Should we use metadata tags?
+- [[https://www.reddit.com/r/googlephotos/comments/1aiathr/in_which_metadata_field_exif_or_iptc_do_you_store/][There are some attempts]] wherer ppl try to use metadata in the file. Options are IPTC, XMP and EXIF but tooling is bad
+  - [[https://www.reddit.com/r/AskPhotography/comments/w0g5n1/exif_iptc_xmp_which_one_should_i_keep/][EXIF, IPTC, XMP: Which one should I keep? : AskPhotography]]
+  - [[https://en.wikipedia.org/wiki/Digital_Negative][Digital Negative - Wikipedia]]
+  - https://savemetadata.org/ (WG are almost dead)
+**** Search interface
+- https://github.com/kashav/fsql : SQL for search?
+*** Media browser
+- So metadata in the file seems like a not so great idea for a tool of this kind.
+  - And people need to do what we call [[https://en.wikipedia.org/wiki/Folksonomy][Folksonomy - Wikipedia]]
+- So the other way is to maintain a separate metata and search management thing. I like how [[https://tmsu.org/][TMSU]] works by mounting a virtual FS. but i don't think this will work as is in windows. so we'll think.
+  #+begin_quote
+TMSU is a command line tool to tag files. You define a set of tags and with the tools you assign any number of tags to a file. Tags can have different values, like year=1992, or year=2002. It can also make query based on those tags.
+
+My workflow with documents is as follows:
+
+- Identify the file or the url and get as much information as possible, iso standard number, isbn, doi or rfc number. I tried automated extraction but usually is not worth the time.
+- Hash the file or the url contents and rename the file with the hash name
+- Obtain metadata from the file using the iso number, isbn, etc... for as many sources as possible
+- Store each metadata and associate with the file
+- Obtain relevant tags from the metadata (XQuery, JSON query)...
+- Tag the files with tmsu.
+
+After all this steps I can make complex queries over files and links like:
+- I want all the rfcs about mime formats written before 2010 that are not superseded.
+- I want all the books from Oxford University Press that have the topic France
+
+The workflow warranties that the classification can be regenerated from the raw data and that no information is lost. I don't use most of the metadata I query but in case I need more I can regenerate everything just changing the xml queries.
+
+  #+end_quote
+- Examples
+  - https://github.com/stashapp/stash
+  - [[https://www.reddit.com/r/StableDiffusion/comments/zsqpdq/i_made_a_tool_that_lets_you_easily_browse_search/][I made a tool that lets you easily browse, search, and manage all Stablediffusion images on your machine (Mac, Windows, Linux) : StableDiffusion]]
+  - [[https://www.reddit.com/r/StableDiffusion/comments/102ca1u/breadboard_a_stablediffusion_browser_version_010/][Breadboard - A Stablediffusion Browser, version 0.1.0 release : StableDiffusion]]
