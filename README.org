@@ -275,3 +275,15 @@ The workflow warranties that the classification can be regenerated from the raw 
   - https://github.com/stashapp/stash
   - [[https://www.reddit.com/r/StableDiffusion/comments/zsqpdq/i_made_a_tool_that_lets_you_easily_browse_search/][I made a tool that lets you easily browse, search, and manage all Stablediffusion images on your machine (Mac, Windows, Linux) : StableDiffusion]]
   - [[https://www.reddit.com/r/StableDiffusion/comments/102ca1u/breadboard_a_stablediffusion_browser_version_010/][Breadboard - A Stablediffusion Browser, version 0.1.0 release : StableDiffusion]]
+** Papers & Implementation
+- https://arxiv.org/pdf/2311.08110
+- https://nooscope.osmarks.net/?page=advanced
+- https://osmarks.net/memethresher/
+- https://osmarks.net/memesae/
+- https://osmarks.net/memescale/
+- https://arxiv.org/abs/2303.15343
+- https://arxiv.org/abs/2103.00020
+- https://github.com/osmarks/meme-search-engine/
+- https://github.com/neonwatty/meme-search/tree/main
+- https://www.alphaxiv.org/abs/2505.11409
+- https://github.com/mever-team/memetector
